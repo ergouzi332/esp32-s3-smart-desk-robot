@@ -4,7 +4,7 @@
 [![ESP32-S3](https://img.shields.io/badge/MCU-ESP32--S3--N16R8-green)](https://www.espressif.com/)
 
 > 基于 ESP32-S3-N16R8 的桌面智能交互机器人，支持语音控制、集成 OLED 显示、心率监测、温湿度检测、天气查询、时间查询、电量查询等功能。
-> 已完成pcb设计打板并焊接验证，调试功能完善。
+> 已完成PCB设计打板并焊接验证，调试功能完善。
 
 ---
 
@@ -42,3 +42,17 @@
 ## 软件架构
 
 ### 项目结构
+```text
+Smartwatch/
+├── src/                          # 源代码目录
+│   ├── main.cpp                  # 主程序入口 + 状态机核心逻辑
+│   ├── graphic.cpp               # OLED 绘图模块（图标、文字、表情动画）
+│   ├── mywifi.cpp                # WiFi 连接与网络状态管理
+│   ├── mytime.cpp                # 网络授时模块（苏宁 API）
+│   ├── weather.cpp               # 天气数据获取模块（心知天气 API）
+│   ├── max30102.cpp              # MAX30102 心率/血氧传感器驱动
+│   ├── dth11.cpp                 # DHT11 温湿度传感器驱动
+│   ├── battery.cpp               # 电池电压采集与电量检测
+│   └── AudioSpeaker.cpp          # I2S 音频输出模块（语音播报）
+├── include/                      # 公共头文件目录
+└── platformio.ini                # PlatformIO 项目配置文件
